@@ -21,11 +21,6 @@ To get a local copy up and running, follow these simple steps.
    ```bash
    git clone https://github.com/Atif999/BE-TASK.git
 
-   
-Certainly! Here's a generic README.md file for your project:
-
-markdown
-Copy code
 # Your Project Name
 
 ## Description

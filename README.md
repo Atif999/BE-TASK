@@ -21,12 +21,6 @@ To get a local copy up and running, follow these simple steps.
    ```bash
    git clone https://github.com/Atif999/BE-TASK.git
 
-# Your Project Name
-
-## Description
-
-Briefly describe your project here.
-
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:

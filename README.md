@@ -28,8 +28,6 @@ Before you begin, ensure you have met the following requirements:
 - Node.js installed on your machine
 - Git installed on your machine
 
-## Getting Started
-
 To get a local copy up and running, follow these simple steps.
 
 ### Installation and Running Project

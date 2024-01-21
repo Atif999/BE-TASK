@@ -50,7 +50,7 @@ To get a local copy up and running, follow these simple steps.
 
    `npm start`
 
-   The application will be available at http://localhost:3000 (or another specified port).
+   The application will be available at http://localhost:3000
 
 ### Tests
 

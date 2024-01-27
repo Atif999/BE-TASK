@@ -2,10 +2,10 @@ const vendingService = require("../services/vendingService");
 
 const VendingController = {
   deposit: async (req, res) => {
-    const { username, coins } = req.body;
-
+    const { coins } = req.body;
+    const userId = req.user._id;
     try {
-      const result = await vendingService.deposit(username, coins);
+      const result = await vendingService.deposit(userId, coins);
       res.status(200).json(result);
     } catch (error) {
       res.status(500).json({ message: "Internal Server Error!" });
@@ -13,10 +13,11 @@ const VendingController = {
   },
 
   buy: async (req, res) => {
-    const { username, productId, amount } = req.body;
+    const { productId, amount } = req.body;
+    const userId = req.user._id;
 
     try {
-      const result = await vendingService.buy(username, productId, amount);
+      const result = await vendingService.buy(userId, productId, amount);
       res.status(200).json(result);
     } catch (error) {
       if (error.code == 400) {
@@ -28,10 +29,9 @@ const VendingController = {
   },
 
   reset: async (req, res) => {
-    const username = req.body.username;
-
+    const userId = req.user._id;
     try {
-      const result = await vendingService.resetDeposit(username);
+      const result = await vendingService.resetDeposit(userId);
       res.status(200).json(result);
     } catch (error) {
       res.status(500).json({ message: "Internal Server Error!" });

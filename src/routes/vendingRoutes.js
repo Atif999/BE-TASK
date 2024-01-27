@@ -5,7 +5,6 @@ const checkBuyer = require("../middlewares/checkBuyer");
 const {
   validateDeposit,
   validateBuy,
-  validateReset,
 } = require("../middlewares/validateVending");
 
 const router = express.Router();
@@ -26,12 +25,6 @@ router.put(
   VendingController.buy
 );
 
-router.put(
-  "/reset",
-  authMiddleware,
-  checkBuyer,
-  validateReset,
-  VendingController.reset
-);
+router.put("/reset", authMiddleware, checkBuyer, VendingController.reset);
 
 module.exports = router;

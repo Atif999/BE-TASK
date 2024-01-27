@@ -2,13 +2,13 @@ const UserModel = require("../models/user");
 const ProductModel = require("../models/product");
 const calculateChange = require("../helper/calculateChange");
 const vendingService = {
-  deposit: async (username, coin) => {
+  deposit: async (userId, coin) => {
     const validCoins = [5, 10, 20, 50, 100];
     if (!validCoins.includes(coin)) {
       throw new Error("Invalid coin");
     }
 
-    const user = await UserModel.findOne({ username });
+    const user = await UserModel.findOne({ _id: userId });
     if (!user) {
       throw new Error("User not found");
     }
@@ -19,8 +19,8 @@ const vendingService = {
     return { message: "Deposit successful", deposit: user.deposit };
   },
 
-  buy: async (username, productId, amount) => {
-    const user = await UserModel.findOne({ username });
+  buy: async (userId, productId, amount) => {
+    const user = await UserModel.findOne({ _id: userId });
     const product = await ProductModel.findOne({ productId });
 
     if (!user || !product) {
@@ -51,8 +51,8 @@ const vendingService = {
     };
   },
 
-  resetDeposit: async (username) => {
-    const user = await UserModel.findOne({ username });
+  resetDeposit: async (userId) => {
+    const user = await UserModel.findOne({ _id: userId });
 
     if (!user) {
       throw new Error("User not found");

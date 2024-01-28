@@ -21,9 +21,8 @@ const ProductController = {
   createProduct: async (req, res) => {
     try {
       const sellerId = req.user._id;
-      const { productId, productName, cost, amountAvailable } = req.body;
+      const { productName, cost, amountAvailable } = req.body;
       const productData = {
-        productId,
         cost,
         amountAvailable,
         productName,

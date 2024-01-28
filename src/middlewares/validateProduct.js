@@ -2,7 +2,6 @@ const Joi = require("joi");
 
 const validateCreateProduct = (req, res, next) => {
   const schema = Joi.object({
-    productId: Joi.number().integer().min(1).required(),
     productName: Joi.string().min(3).max(30).required(),
     cost: Joi.number().integer().min(0).required(),
     amountAvailable: Joi.number().integer().min(0).required(),
